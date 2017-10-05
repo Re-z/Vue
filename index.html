@@ -9,9 +9,20 @@
 <body>
 <div id="app">
     <!--<input type="text" v-on:input = "changeText" >-->
+    <h1 v-once>{{ title }}</h1>
+
     <p> {{ getValue() }}</p>
+    <div v-html="htmlExample"></div>
+
+    <button v-on:click="increaseCounter">Increase counter</button>
+    <p>{{counter}}</p>
 </div>
 <script src="script.js"></script>
 
 </body>
 </html>
+
+<!--v-once = for single render. this tag renders only once at start and cannot be overwritten-->
+<!--v-bind = binds property of tag witdh Vue data-->
+<!--v-html = renders '<img src="#">'(for example) as html, but not the string-->
+<!--v-on:click = listens to the click event and executes a function when event is triggered-->

@@ -1,18 +1,20 @@
 new Vue({
     el: '#app',
     data: {
-        title: 'Hello VUE!'
+        title: 'Hello VUE!',
+        htmlExample: '<img src="http://placecage.com/200/200">',
+        counter: 0
     },
     methods: {
         changeText: function(ev){
             this.title = ev.target.value;
         },
         getValue: function() {
-            if (true) {
-                this.title = 'function result';
-                return this.title;
-
-            }
+            this.title = 'function result';
+            return this.title;
+        },
+        increaseCounter: function() {
+            this.counter++
         }
     }
 })
