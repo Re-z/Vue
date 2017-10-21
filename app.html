@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue app 1</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div class="vue-game">
+    <div class="vue-game__top">
+        <div class="vue-game_you vue-game__section">
+            <h2>Monster</h2>
+            <div class="vue-game__health-wrap">
+                <div class="vue-game__health-overlay"></div>
+            </div>
+        </div>
+        <div class="vue-game_monster vue-game__section">
+            <h2>Monster</h2>
+            <div class="vue-game__health-wrap">
+                <div class="vue-game__health-overlay"></div>
+            </div>
+        </div>
+    </div>
+    <div class="vue-game__middle">
+        <button class="vue-game__start">Start</button>
+            <div class="vue-game__btns-wrap">
+                <button class="vue-game__btn vue-game__btn_attack">Attack</button>
+                <button class="vue-game__btn vue-game__btn_spat">Special attack</button>
+                <button class="vue-game__btn vue-game__btn_heal">Heal</button>
+                <button class="vue-game__btn vue-game__btn_giveup">Give up</button>
+            </div>
+    </div>
+    <div class="vue-game__bottom">
+        <ul>
+            <li>Monster huyonster</li>
+        </ul>
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
+<!--v-once = for single render. this tag renders only once at start and cannot be overwritten-->
+<!--v-bind = binds property of tag witdh Vue data-->
+<!--v-html = renders '<img src="#">'(for example) as html, but not the string-->
+<!--v-on:click = listens to the click event and executes a function when event is triggered-->
+<!--$event - the default name of event object-->
+<!--v-on:mousemove.stop - stops the propagation of event-->
+<!--v-on:mousemove.prevent - prevents the default behavior-->
+<!--v-on:keyup.enter.space - key modyfiers that listens to ENTER or SPACE btns-->
+<!--v-model="var" - creates a reactivity when data at input(for exmpl) and data in <p> is binded. And when you change input, <p> is changing automaticly-->

@@ -13,8 +13,14 @@ new Vue({
             this.title = 'function result';
             return this.title;
         },
-        increaseCounter: function() {
-            this.counter++
+        increaseCounter: function(step, $event) {
+            this.counter += step;
+            //alert(event.target.tagName)
+        },
+        keyUpListener: function() {
+            alert( 'You`ve hitted ENTER or SPACE button')
         }
     }
 })
+
+//computed - do a fucntions without a recalculating a DOM
