@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <title>Vue app 1</title>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
-
+    <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
 <div class="vue-game">
     <div class="vue-game__top">
-        <div class="vue-game_you vue-game__section">
-            <h2>Monster</h2>
+        <div class="vue-game__section vue-game__section_you">
+            <h2>You</h2>
             <div class="vue-game__health-wrap">
-                <div class="vue-game__health-overlay"></div>
+                <div class="vue-game__health-overlay vue-game__health-overlay_you">{{ yourHealth}}%</div>
             </div>
         </div>
-        <div class="vue-game_monster vue-game__section">
+        <div class="vue-game__section vue-game__section_monster">
             <h2>Monster</h2>
             <div class="vue-game__health-wrap">
-                <div class="vue-game__health-overlay"></div>
+                <div class="vue-game__health-overlay vue-game__health-overlay_monster">{{ monsterHealth}}%</div>
             </div>
         </div>
     </div>
+
     <div class="vue-game__middle">
-        <button class="vue-game__start">Start</button>
-            <div class="vue-game__btns-wrap">
-                <button class="vue-game__btn vue-game__btn_attack">Attack</button>
+        <button class="vue-game__btn vue-game__btn_start" @click="showBtns" >Start</button>
+            <div class="vue-game__btns-wrap" v-if="visible">
+                <button class="vue-game__btn vue-game__btn_attack" @click="atack">Attack</button>
                 <button class="vue-game__btn vue-game__btn_spat">Special attack</button>
                 <button class="vue-game__btn vue-game__btn_heal">Heal</button>
                 <button class="vue-game__btn vue-game__btn_giveup">Give up</button>
@@ -38,7 +39,7 @@
     </div>
 </div>
 
-<script src="app.js"></script>
+<script src="assets/app.js"></script>
 
 </body>
 </html>
