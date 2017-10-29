@@ -24,17 +24,17 @@
     </div>
 
     <div class="vue-game__middle">
-        <button class="vue-game__btn vue-game__btn_start" @click="showBtns" >Start</button>
-            <div class="vue-game__btns-wrap" v-if="visible">
-                <button class="vue-game__btn vue-game__btn_attack" @click="atack">Attack</button>
-                <button class="vue-game__btn vue-game__btn_spat">Special attack</button>
-                <button class="vue-game__btn vue-game__btn_heal">Heal</button>
-                <button class="vue-game__btn vue-game__btn_giveup">Give up</button>
+        <button class="vue-game__btn vue-game__btn_start" v-if="visibleStart" @click="showBtns">Start</button>
+            <div class="vue-game__btns-wrap" v-if="visibleBtns">
+                <button class="vue-game__btn vue-game__btn_attack" @click="atack" >Attack</button>
+                <button class="vue-game__btn vue-game__btn_spat" @click="specialAtack">Special attack</button>
+                <button class="vue-game__btn vue-game__btn_heal" @click="heal">Heal</button>
+                <button class="vue-game__btn vue-game__btn_giveup"  @click="giveUp">Give up</button>
             </div>
     </div>
     <div class="vue-game__bottom">
-        <ul>
-            <li>Monster huyonster</li>
+        <ul class="vue-game__logs" v-for="item in damageLog">
+            <li>you hit monster {{ damageLog[damageLog.length-1] }}</li>
         </ul>
     </div>
 </div>

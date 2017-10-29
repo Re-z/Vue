@@ -15,7 +15,6 @@
 }
 .vue-game__top {
     margin-bottom: 30px;
-    outline: 1px solid red;
     overflow: hidden;
     padding: 40px 20px;
 }
@@ -45,10 +44,8 @@
 .vue-game__middle {
     text-align: center;
     padding: 40px 0;
-    outline: 1px solid red;
 }
 .vue-game__btns-wrap {
-    outline: 1px solid blue;
     padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
