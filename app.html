@@ -18,7 +18,7 @@
         <div class="vue-game__section vue-game__section_monster">
             <h2>Monster</h2>
             <div class="vue-game__health-wrap">
-                <div class="vue-game__health-overlay vue-game__health-overlay_monster">{{ monsterHealth}}%</div>
+                <div class="vue-game__health-overlay vue-game__health-overlay_monster" :style="{width: this.monsterHealth}">{{monsterHealth}}%</div>
             </div>
         </div>
     </div>
@@ -33,8 +33,10 @@
             </div>
     </div>
     <div class="vue-game__bottom">
-        <ul class="vue-game__logs" v-for="item in damageLog">
-            <li>you hit monster {{ damageLog[damageLog.length-1] }}</li>
+        <ul class="vue-game__logs" >
+            <li v-for="item in damageLog">You hit monster {{ item }}</li>
+            <li v-for="item in damageLog2">Monster hit you {{ item }}</li>
+
         </ul>
     </div>
 </div>
