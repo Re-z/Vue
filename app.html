@@ -12,25 +12,33 @@
         <div class="vue-game__section vue-game__section_you">
             <h2>You</h2>
             <div class="vue-game__health-wrap">
-                <div class="vue-game__health-overlay vue-game__health-overlay_you">{{ yourHealth}}%</div>
+                <div
+                    class="vue-game__health-overlay vue-game__health-overlay_you"
+                    :style="{width: playerHealth + '%'}">
+                    {{ playerHealth}}%
+                </div>
             </div>
         </div>
         <div class="vue-game__section vue-game__section_monster">
             <h2>Monster</h2>
             <div class="vue-game__health-wrap">
-                <div class="vue-game__health-overlay vue-game__health-overlay_monster" :style="{width: this.monsterHealth}">{{monsterHealth}}%</div>
+                <div
+                    class="vue-game__health-overlay vue-game__health-overlay_monster"
+                    :style="{width: monsterHealth + '%'}">
+                    {{monsterHealth}}%
+                </div>
             </div>
         </div>
     </div>
 
     <div class="vue-game__middle">
         <button class="vue-game__btn vue-game__btn_start" v-if="visibleStart" @click="showBtns">Start</button>
-            <div class="vue-game__btns-wrap" v-if="visibleBtns">
-                <button class="vue-game__btn vue-game__btn_attack" @click="atack" >Attack</button>
-                <button class="vue-game__btn vue-game__btn_spat" @click="specialAtack">Special attack</button>
-                <button class="vue-game__btn vue-game__btn_heal" @click="heal">Heal</button>
-                <button class="vue-game__btn vue-game__btn_giveup"  @click="giveUp">Give up</button>
-            </div>
+        <div class="vue-game__btns-wrap" v-if="!visibleStart">
+            <button class="vue-game__btn vue-game__btn_attack" @click="atack" >Attack</button>
+            <button class="vue-game__btn vue-game__btn_spat" @click="specialAtack">Special attack</button>
+            <button class="vue-game__btn vue-game__btn_heal" @click="heal">Heal</button>
+            <button class="vue-game__btn vue-game__btn_giveup"  @click="giveUp">Give up</button>
+        </div>
     </div>
     <div class="vue-game__bottom">
         <ul class="vue-game__logs" >
