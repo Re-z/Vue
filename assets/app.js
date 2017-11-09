@@ -1,40 +1,70 @@
 new Vue({
     el: '.vue-game',
     data: {
-        yourHealth: 100,
+        playerHealth: 100,
         monsterHealth: 100,
-        visibleBtns: false,
         visibleStart: true,
-        damageLog: [1],
-        damageLog2: [2]
+        turns: []
 },
     methods: {
         showBtns: function(ev){
-            this.visibleBtns = !this.visibleBtns;
             this.visibleStart = !this.visibleStart;
+	        this.playerHealth = 100;
+	        this.monsterHealth = 100;
         },
         atack: function() {
-            var randNum = Math.floor(Math.random() * 10) + 1;
-            this.monsterHealth -= randNum;
-            var randNum2 = Math.floor(Math.random() * 10) + 1;
-            this.yourHealth -= randNum2;
+            var playerDmg = this.generateRandom();
+            this.monsterHealth -= playerDmg;
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster for' + playerDmg
+            });
+
+            var monsterDmg = this.generateRandom();
+            this.playerHealth -= monsterDmg;
+            this.turns.unshift({
+                isPlayer: false,
+                text: 'Monster hits Player for' + monsterDmg
+            });
+            if (this.playerHealth < 1) {
+                this.endGame('Game over. You losed')
+            }
+            else if (this.monsterHealth < 1) {
+                this.endGame('Congratulations, you won!!!')
+            }
         },
         specialAtack: function () {
             this.monsterHealth -= 10;
-            var randNum2 = Math.floor(Math.random() * 10) + 1;
-            this.yourHealth -= randNum2;
+            this.playerHealth -= this.generateRandom();
+            if (this.playerHealth < 1) {
+                this.endGame('Game over. You losed')
+            }
+            else if (this.monsterHealth < 1) {
+                this.endGame('Congratulations, you won!!!')
+            }
         },
         heal: function() {
-            var randNum2 = Math.floor(Math.random() * 10) + 1;
-            this.yourHealth -= randNum2;
-            this.yourHealth += 10;
+            this.playerHealth -= this.generateRandom();
+            if(this.playerHealth <= 90){
+	            this.playerHealth += 10;
+            }
+            else {
+	            this.playerHealth = 100;
+            }
+
         },
         giveUp: function() {
+            this.endGame('What a shame! You gived up!')
+            this.playerHealth = 100;
+            this.monsterHealth = 100;
+        },
+	    generateRandom: function () {
+            return  Math.floor(Math.random() * 10) + 1;
+        },
+        endGame: function(text) {
+            alert(text);
             this.visibleBtns = !this.visibleBtns;
             this.visibleStart = !this.visibleStart;
-            this.yourHealth = 100;
-            this.monsterHealth = 100;
-            alert('What a shame! You gived up!')
         }
 
 

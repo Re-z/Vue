@@ -40,6 +40,7 @@
     width: 100%;
     background: #41B883;
     height: inherit;
+    transition: .5s linear;
 }
 .vue-game__middle {
     text-align: center;
