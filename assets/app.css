@@ -9,8 +9,6 @@
 .vue-game {
     width: 1000px;
     padding: 20px;
-
-    border: 1px solid black;
     margin: 0 auto;
 }
 .vue-game__top {
@@ -55,9 +53,28 @@
 .vue-game__btn {
     margin: 0 10px;
     padding: 10px 20px;
-    background: lightcoral;
+    /*background: lightcoral;*/
     outline: none;
     border: none;
     cursor: pointer;
+}
+.vue-game__btn_attack {background: burlywood;}
+.vue-game__btn_spat {background: lightgreen;}
+.vue-game__btn_heal {background: lightskyblue}
+.vue-game__btn_giveup {background: lightcoral;}
 
+.vue-game__bottom {
+    height: 200px;
+    overflow: auto;
+}
+.vue-game__logs {
+    list-style: none;
+    text-align: center;
+}
+.vue-game__logs li {
+    background: lightblue;
+    padding: 3px 0;
+}
+.vue-game__logs li:nth-last-of-type(even) {
+    background: lightcoral;
 }

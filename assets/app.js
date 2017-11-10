@@ -11,20 +11,21 @@ new Vue({
             this.visibleStart = !this.visibleStart;
 	        this.playerHealth = 100;
 	        this.monsterHealth = 100;
+            this.turns = [];
         },
         atack: function() {
             var playerDmg = this.generateRandom();
             this.monsterHealth -= playerDmg;
             this.turns.unshift({
                 isPlayer: true,
-                text: 'Player hits Monster for' + playerDmg
+                text: 'Player hits Monster for' + ' ' + playerDmg
             });
 
             var monsterDmg = this.generateRandom();
             this.playerHealth -= monsterDmg;
             this.turns.unshift({
                 isPlayer: false,
-                text: 'Monster hits Player for' + monsterDmg
+                text: 'Monster hits Player for' + ' ' + monsterDmg
             });
             if (this.playerHealth < 1) {
                 this.endGame('Game over. You losed')
@@ -35,7 +36,19 @@ new Vue({
         },
         specialAtack: function () {
             this.monsterHealth -= 10;
-            this.playerHealth -= this.generateRandom();
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster with special attack for 10'
+            });
+
+
+            var monsterDmg = this.generateRandom()
+            this.playerHealth -= monsterDmg;
+            this.turns.unshift({
+                isPlayer: false,
+                text: 'Monster hits Player for' + ' ' + monsterDmg
+            })
+
             if (this.playerHealth < 1) {
                 this.endGame('Game over. You losed')
             }
@@ -47,6 +60,7 @@ new Vue({
             this.playerHealth -= this.generateRandom();
             if(this.playerHealth <= 90){
 	            this.playerHealth += 10;
+
             }
             else {
 	            this.playerHealth = 100;
@@ -57,13 +71,14 @@ new Vue({
             this.endGame('What a shame! You gived up!')
             this.playerHealth = 100;
             this.monsterHealth = 100;
+            this.turns = [];
+
         },
 	    generateRandom: function () {
             return  Math.floor(Math.random() * 10) + 1;
         },
         endGame: function(text) {
             alert(text);
-            this.visibleBtns = !this.visibleBtns;
             this.visibleStart = !this.visibleStart;
         }
 
