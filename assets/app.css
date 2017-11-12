@@ -53,7 +53,6 @@
 .vue-game__btn {
     margin: 0 10px;
     padding: 10px 20px;
-    /*background: lightcoral;*/
     outline: none;
     border: none;
     cursor: pointer;
@@ -75,6 +74,6 @@
     background: lightblue;
     padding: 3px 0;
 }
-.vue-game__logs li:nth-last-of-type(even) {
+.vue-game__logs li:nth-last-of-type(odd) {
     background: lightcoral;
 }
